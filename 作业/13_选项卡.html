@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./13_选项卡_files/reset.css">
+  <title>Document</title>
+  <style>
+    .wrap {
+      position: relative;
+      width: 820px;
+      height: 380px;
+      margin: 100px auto 0px;
+      background-color: red;
+      overflow: hidden;
+    }
+
+    .wrap .wrap_img {
+      position: relative;
+      width: 4100px;
+      height: 340px;
+      transition: transform .5s;
+    }
+
+    .wrap .wrap_img li,
+    .wrap .wrap_img li>img {
+      width: 820px;
+      height: 340px;
+      float: left;
+    }
+
+    .wrap .but {
+      display: flex;
+      line-height: 40px;
+      height: 40px;
+      text-align: center;
+    }
+
+    .wrap .but>div {
+      width: 20%;
+      background-color: #e3e2e2;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .wrap .but>.show {
+      background-color: #f7f6f6;
+      color: #cea861;
+      border-bottom: 2px solid #cea861;
+    }
+
+    .wrap .arrows {
+      width: 100%;
+      position: absolute;
+      display: flex;
+      left: 0;
+      top: 50%;
+      justify-content: space-between;
+    }
+
+    .wrap .arrows>div {
+      width: 25px;
+      height: 50px;
+      background-color: black;
+      color: #fff;
+      margin-top: -25px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+
+    .wrap .wrap_img {
+      transform: translate(0px, 0px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <ul class="wrap_img" style="transform: translate(-1640px);">
+      <li>
+        <img src="./13_选项卡_files/1.jpg" alt="">
+      </li>
+      <li>
+        <img src="./13_选项卡_files/2.jpg" alt="">
+      </li>
+      <li>
+        <img src="./13_选项卡_files/3.png" alt="">
+      </li>
+      <li>
+        <img src="./13_选项卡_files/4.jpg" alt="">
+      </li>
+      <li>
+        <img src="./13_选项卡_files/5.jpg" alt="">
+      </li>
+    </ul>
+    <div class="but">
+      <div class="">璀璨臻彩-女明星的日常</div>
+      <div class="">绽灵夺宝·怒放</div>
+      <div class="show">名人堂臻品宝箱</div>
+      <div class="">星之挑战回归</div>
+      <div class="">灵魂莲华第2幕通行证</div>
+    </div>
+    <div class="arrows">
+      <div>
+        &lt;
+      </div>
+      <div>
+        &gt;
+      </div>
+    </div>
+  </div>
+  <script src="./13_选项卡_files/TAB.js.下载"></script>
+
+
+</body></html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./06_导航菜单栏(定位作业)_files/reset.css">
+  <title>Document</title>
+  <style>
+    .wrap {
+      margin: auto;
+      height: 300px;
+      min-width: 1200px;
+      max-width: 1700px;
+      background-color: #441b79;
+      position: relative;
+      top: 150px
+    }
+    .wrap .item {
+      width: 220px;
+      height: 476px;
+      background-color: #188eee;
+      position: relative;
+      left: 120px;
+      top: -50px;
+      color: #fff;
+    }
+    .wrap .title {
+      height: 50px;
+      line-height: 50px;
+      padding-left: 15px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .wrap .title .bg {
+      display: inline-block;
+      width: 22px;
+      height: 27px;
+      background: url("../img/三杠.png") no-repeat center / cover;
+      vertical-align: -6px;
+      margin-right: 10px;
+    }
+    .wrap .list-content {
+      background-color: #0477c0;
+      height: 426px;
+      position: relative;
+    }
+    .wrap .list-content li {
+      height: 70px;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 0px 15px;
+      border-bottom: 1px solid #1681c4;
+    }
+    .wrap .list-content li h3 {
+      height: 42px;
+      font-weight: 500;
+      line-height: 42px;
+    }
+    .wrap .list-content li .symbol {
+      color: #97cbe9;
+      float: right;
+    }
+    .wrap .list-content li p {
+      font-size: 13px;
+      color: #97cbe9;
+    }
+    .wrap .list-content .show {
+      display: none;
+      width: 980px;
+      height: 422px;
+      border: 2px solid blue;
+      position: absolute;
+      top: 0px;
+      left: 220px;
+    }
+    .wrap .list-content li:hover .show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="item">
+      <h3 class="title">
+        <span class="bg"></span>
+        <span>全部课程</span>
+      </h3>
+      <ul class="list-content">
+        <li>
+          <h3>IT·互联网<span class="symbol"> &gt; </span></h3>
+          <p>前端开发Linux运维</p>
+          <div class="show" style="background-color: red;">
+            IT·互联网
+          </div>
+        </li>
+        <div></div>
+        <li>
+          <h3>设计·创作<span class="symbol"> &gt; </span></h3>
+          <p>平面设计游戏美术设计CAD</p>
+          <div class="show" style="background-color: green;">
+            设计·创作
+          </div>
+        </li>
+        <li>
+          <h3>语言·留学<span class="symbol"> &gt; </span></h3>
+          <p>实用口语雅思托福</p>
+          <div class="show" style="background-color: yellow;">
+            语言·留学
+          </div>
+        </li>
+        <li>
+          <h3>职业考证<span class="symbol"> &gt; </span></h3>
+          <p>公务员教师考试建造工程</p>
+          <div class="show" style="background-color: aqua;">
+            职业考证
+          </div>
+        </li>
+        <li>
+          <h3>升学·考研<span class="symbol"> &gt; </span></h3>
+          <p>考研大学高中初中</p>
+          <div class="show" style="background-color: orange;">
+            升学·考研
+          </div>
+        </li>
+        <li>
+          <h3>兴趣·生活<span class="symbol"> &gt; </span></h3>
+          <p>摄影乐器美妆育儿</p>
+          <div class="show" style="background-color: purple;">
+            兴趣·生活
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+</body></html>

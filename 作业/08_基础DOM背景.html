@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./08_基础DOM背景_files/reset.css">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 80px;
+      height: 300px;
+      box-shadow: 0px 0px 0px 2px #eee;
+      position: fixed;
+      right: 0px;
+      bottom: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: space-around;
+      background-color: #fff;
+    }
+    .wrap>li {
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .wrap>li:nth-child(1) {
+      background-color: red;
+    }
+    .wrap>li:nth-child(2) {
+      background-color: yellow;
+    }
+    .wrap>li:nth-child(3) {
+      background-color: black;
+    }
+    .wrap>li:nth-child(4) {
+      background-color: green;
+    }
+    .show {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="show"></div>
+  <ul class="wrap">
+    <li>红</li>
+    <li>黄</li>
+    <li>黑</li>
+    <li>绿</li>
+  </ul>
+  <script src="./08_基础DOM背景_files/DOM_bj.js.下载"></script>
+
+
+</body></html>
