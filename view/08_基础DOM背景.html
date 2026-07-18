@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 80px;
+            height: 300px;
+            box-shadow: 0px 0px 0px 2px #eee;
+            position: fixed;
+            right: 0px;
+            bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: space-around;
+            background-color: #fff;
+        }
+
+        .wrap>li {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .wrap>li:nth-child(1) {
+            background-color: red;
+        }
+
+        .wrap>li:nth-child(2) {
+            background-color: yellow;
+        }
+
+        .wrap>li:nth-child(3) {
+            background-color: black;
+        }
+
+        .wrap>li:nth-child(4) {
+            background-color: green;
+        }
+
+        .show {
+            color: #fff;
+            font-size: 50px;
+            font-weight: 900;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="show"></div>
+    <ul class="wrap">
+        <li>红</li>
+        <li>黄</li>
+        <li>黑</li>
+        <li>绿</li>
+    </ul>
+    <script>
+        var liEls = document.querySelectorAll(".wrap li")
+        var showEl = document.querySelector(".show")
+        liEls[0].onclick = function () {
+            document.body.style.backgroundColor = "red"
+            showEl.innerHTML = "红"
+        }
+        liEls[1].onclick = function () {
+            document.body.style.backgroundColor = "yellow"
+            showEl.innerHTML = "黄"
+        }
+        liEls[2].onclick = function () {
+            document.body.style.backgroundColor = "black"
+            showEl.innerHTML = "黑"
+        }
+        liEls[3].onclick = function () {
+            document.body.style.backgroundColor = "green"
+            showEl.innerHTML = "绿"
+        }
+    </script>
+</body>
+
+</html>

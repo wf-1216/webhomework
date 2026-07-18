@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Microsoft yahei", serif;
+    }
+    li {
+      list-style-type: none;
+    }
+    table {
+      width: 1000px;
+      border-collapse: collapse;
+      border: 1px solid #930;
+      margin: 50px auto 0;
+      user-select: none;
+    }
+    table tr td {
+      width: 250px;
+      height: 100px;
+      text-align: center;
+      border: 1px solid #930;
+    }
+    table tr.title td {
+      height: 50px;
+      background: #c36;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    table tr td img {
+      height: 90px;
+      margin: 0 auto;
+    }
+
+    table tr td.number span {
+      display: inline-block;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    table tr td.number span.down,
+    table tr td.number span.add {
+      width: 30px;
+      height: 30px;
+      background: #ddd;
+      line-height: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    table tr td.number span.num {
+      width: 50px;
+      height: 28px;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      line-height: 28px;
+      color: #c36;
+    }
+
+    .box {
+      width: 1000px;
+      height: 50px;
+      background: #c36;
+      margin: 10px auto;
+    }
+
+    .box p {
+      float: right;
+      width: 250px;
+      height: 50px;
+      line-height: 50px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .box p span {
+      color: #f4e5a9;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tbody>
+      <tr class="title">
+        <td>商品</td>
+        <td>单价</td>
+        <td>数量</td>
+        <td>小计</td>
+      </tr>
+      <tr>
+        <td><img
+            src="../img/11_01.webp"
+            alt=""></td>
+        <td class="price">38</td>
+        <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+        <td class="total">0</td>
+      </tr>
+      <tr>
+        <td><img src="../img/11_02.webp"
+            alt=""></td>
+        <td class="price">30</td>
+        <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+        <td class="total">0</td>
+      </tr>
+      <tr>
+        <td><img src="../img/11_03.webp"
+            alt=""></td>
+        <td class="price">5</td>
+        <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+        <td class="total">0</td>
+      </tr>
+      <tr>
+        <td><img
+            src="../img/11_04.webp"
+            alt=""></td>
+        <td class="price">9</td>
+        <td class="number"><span class="down">-</span><span class="num">0</span><span class="add">+</span></td>
+        <td class="total">0</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="box">
+    <p class="totalPrice">合计费用： <span>0</span> ￥</p>
+    <p class="totalNum">已选中商品： <span>0</span> 个</p>
+  </div>
+  <!-- 
+  获取按钮的元素节点设置点击事件
+  获取数量元素节点设置对应的数量
+  获取单价和小计元素节点设置对应计算的值
+  获取总计商品个数和费用的元素节点
+  -->
+  <script>
+    var add = document.querySelectorAll(".add") // 增加
+    var down = document.querySelectorAll(".down") // 减少
+    var num = document.querySelectorAll(".num") // 单个商品的购买数量
+    var price = document.querySelectorAll(".price") // 商品的单价
+    var total = document.querySelectorAll(".total") // 小计商品的花费
+    var totalPrice = document.querySelector(".totalPrice span") // 总计商品的花费
+    var totalNum = document.querySelector(".totalNum span") // 总计商品的数量
+    
+    // 循环绑定事件
+    for(let i = 0; i < add.length; i++){
+        // + 号点击事件
+        add[i].onclick = function(){ handle(true,i) }
+        // - 号点击事件
+        down[i].onclick = function(){ handle(false,i) }
+    }
+
+    function handle(flag,i){
+        var count = num[i].innerText // 获取对应的数量
+        flag ? ++count : --count // 判断当前操作是加,还是减
+        if(count < 0) count = 0 // 不能小于0,小于0就设置成0
+        num[i].innerText = count  // 改变原有的数量
+        var result = count * price[i].innerText // 计算小计花费
+        total[i].innerText = result // 设置小计价格
+        // 设置总数和总花费
+        totalNum.innerText = handleTotal(num)
+        totalPrice.innerText = handleTotal(total)
+    }
+    // 计算总的函数
+    function handleTotal(dom){
+        let result = 0
+        for(let i = 0; i < dom.length; i++){
+            result += Number(dom[i].innerText)
+        }
+        return result
+    }
+
+  </script>
+</body>
+
+</html>

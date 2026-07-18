@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #a6d9ee;
+        }
+
+        input {
+            outline: none;
+        }
+
+        .wrap {
+            width: 400px;
+            height: 335px;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            /* 通过定位以及外边距设置来操作元素居中 */
+            margin: auto;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .wrap h2 {
+            font-size: 22px;
+            height: 100px;
+            line-height: 100px;
+            font-weight: 400;
+            user-select: none;
+        }
+
+        .wrap input {
+            width: 370px;
+            height: 44px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .wrap .pwd {
+            margin: 18px 0px;
+        }
+
+        .wrap button {
+            width: 370px;
+            height: 44px;
+            border-radius: 5px;
+            background-color: #2980b9;
+            border: 0px solid transparent;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .wrap button:hover {
+            background-color: aqua;
+        }
+
+        .wrap .info {
+            font-size: 12px;
+            margin-top: 35px;
+            user-select: none;
+        }
+
+        .wrap .info span {
+            color: #2980b9;
+            cursor: pointer;
+        }
+
+        .wrap .show {
+            position: absolute;
+            text-align: left;
+            text-indent: 16px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h2>注册界面</h2>
+        <div>
+            <input type="text" placeholder="用户名">
+            <p class="show"></p>
+        </div>
+        <div class="pwd">
+            <input type="text" placeholder="密码">
+            <p class="show"></p>
+        </div>
+        <div>
+            <button>确定</button>
+        </div>
+        <p class="info">还没有登录吗?<span>注册</span></p>
+    </div>
+    <script>
+        var inputs = document.querySelectorAll("input")
+        var show = document.querySelectorAll(".show")
+        // 由2至6位数字与字母或中文组成用户名
+        var userRe = /^[\w\u4e00-\u9fa5]{2,6}$/
+        // 首字母大写，数字与字母与特殊符号组成8-16位
+        var passRe = /^[A-Z][\w\?\+\.\*]{7,15}$/
+        // - 内容改变后 + 失去焦点触发- 内容改变后 + 回车触发
+        inputs[0].onchange = function () {
+            var value = this.value
+            if (!userRe.test(value)) {
+                show[0].innerText = "由2至6位数字与字母或中文组成用户名"
+                show[0].style.color = "red"
+
+            } else {
+                show[0].innerText = "用户名符合要求"
+                show[0].style.color = "green"
+            }
+            setTimeout(() => {
+                show[0].innerText = ""
+            }, 3000);
+        }
+        inputs[1].onchange = function () {
+            var value = this.value
+            if (!passRe.test(value)) {
+                show[1].innerText = "首字母大写，数字与字母与特殊符号组成8-16位"
+                show[1].style.color = "red"
+            } else {
+                show[1].innerText = "密码符合要求"
+                show[1].style.color = "green"
+            }
+            setTimeout(() => {
+                show[1].innerText = ""
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .list{
+            /* 解决行内元素和行内块元素的空格解析问题 */
+            font-size: 0px;
+            width: 1310px;
+            /* background-color: red; */
+            margin: 200px auto 0px;
+            border: 10px solid pink;
+            padding: 5px;
+        }
+        .list .item{
+            display: inline-block;
+            width: 250px;
+            height: 440px;
+            padding: 5px;
+            border: 1px solid #eee;
+        }
+        .list .item img{
+            width: 250px;
+            height: 350px;
+        }
+        .list .item .title{
+            font-size:20px;
+            color: red;
+            margin-top: 32px;
+            margin-left: 70px;
+        }
+        /* hover 当鼠标移动到对应元素上时生效hover样式 */
+        .list .item:hover{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="list">
+        <div class="item">
+            <img src="../img/04_01.webp" alt="">
+            <h3 class="title">海贼王路飞</h3>
+        </div>
+        <div class="item">
+            <img src="../img/04_02.jpg" alt="">
+            <h3 class="title">海贼王路飞</h3>
+        </div>
+        <div class="item">
+            <img src="../img/04_03.webp" alt="">
+            <h3 class="title">海贼王路飞</h3>
+        </div>
+        <div class="item">
+            <img src="../img/04_04.jpg" alt="">
+            <h3 class="title">海贼王路飞</h3>
+        </div>
+        <div class="item">
+            <img src="../img/04_05.png" alt="">
+            <h3 class="title">海贼王路飞</h3>
+        </div>
+    </div>
+</body>
+</html>

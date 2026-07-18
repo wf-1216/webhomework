@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,p,h1,h2,h3,h4,h5,h6,ul,li,ol{margin:0px;padding:0px}
+        a{text-decoration:none;color:black}
+        ul,ol{list-style:none}
+        .wrap{
+            width: 820px;
+            height: 380px;
+            background-color: red;
+            margin: 100px auto 0px;
+            position: relative;
+            /* 关键点 */
+            overflow: hidden;
+        }
+        .wrap .img_content{
+            /* 5个图片li的总和 */
+            width: 4100px;
+            height: 340px;
+            /* 设置过度样式 */
+            transition: transform 1s;
+        }
+        .wrap .img_content li{
+            width: 820px;
+            height: 340px;
+            float: left;
+        }
+        .wrap .img_content li img{
+            width: 820px;
+            height: 340px;
+        }
+        .wrap .but{
+            display: flex;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .wrap .but>div{
+            width: 20%;
+            background-color: #e3e2e2;
+            cursor: pointer;
+        }
+        .wrap .but>.show{
+            background-color: #f7f6f6;
+            color: #cea861;
+            border-bottom: 2px solid #cea861;
+        }
+        .wrap .arrows{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            position: absolute;
+            left: 0;
+            top: 45%;
+            justify-content: space-between;
+        }
+        .wrap .arrows>div{
+            width: 25px;
+            height: 50px;
+            background-color: black;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="img_content">
+            <li>
+                <img src="../img/13_01.jpg" alt="">
+            </li>
+            <li>
+                <img src="../img/13_02.jpg" alt="">
+            </li>
+            <li>
+                <img src="../img/13_03.png" alt="">
+            </li>
+            <li>
+                <img src="../img/13_04.jpg" alt="">
+            </li>
+            <li>
+                <img src="../img/13_05.jpg" alt="">
+            </li>
+        </ul>
+        <div class="but">
+            <div class="show">按钮1</div>
+            <div>按钮2</div>
+            <div>按钮3</div>
+            <div>按钮4</div>
+            <div>按钮5</div>
+        </div>
+        <div class="arrows">
+            <div>&lt;</div>
+            <div>&gt;</div>
+        </div>
+    </div>
+    <script>
+        var imgContent = document.querySelector(".wrap .img_content") // 包裹所有的图片的元素
+        var butEls = document.querySelectorAll(".wrap .but>div") //所有的按钮
+        var arrowsEls = document.querySelectorAll(".wrap .arrows>div") //切换的按钮
+        var wrapEl = document.querySelector(".wrap")
+        var index = 0 // 记录当前显示的元素
+        for (let i = 0; i < butEls.length;i++){
+            butEls[i].onclick = function(){
+                butEls[index].classList.remove("show")
+                // 切换图片的位置
+                imgContent.style.transform = `translateX(${i * -820}px)`
+                butEls[i].classList.add("show")
+                index = i
+            }
+        }
+        // 左切换
+        arrowsEls[0].onclick = function(){ handle(true) }
+        // 右切换
+        arrowsEls[1].onclick = function(){ handle(false) }
+        function handle(flag){
+            // 先做移除
+            butEls[index].classList.remove("show")
+            flag ? index-- : index++
+            if(index > 4) index = 0; // 不能大于4,大于4切换的元素不存在
+            if(index < 0 ) index = 4; // 不能小于0,小于0的切换元素不存在
+            imgContent.style.transform = `translateX(${index * -820}px)`
+            butEls[index].classList.add("show")
+        }
+        var time = setInterval(function(){
+            handle(false)
+        },2000)
+        wrapEl.onmouseenter = function(){
+            clearInterval(time)
+        }
+        wrapEl.onmouseleave = function(){
+            time = setInterval(function(){
+                handle(false)
+            },2000)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body,p,h1,h2,h3,h4,h5,h6,ul,li,ol{margin: 0px;padding: 0px;}
+    a{text-decoration:none;color:black;}
+    ul,ol{list-style:none;}
+    body{
+      background-color: #f5f7fa;
+    }
+    .box {
+      width: 400px;
+      background-color: white;
+      margin: 100px auto 30px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      border-radius: 15px;
+      padding: 20px 0px;
+    }
+    textarea {
+      width: 360px;
+      height: 50px;
+      resize: none;
+      border: 2px solid #e4e7ed;
+      border-radius: 10px;
+      outline: none;
+      font-size: 20px;
+      margin: 10px auto;
+      transition: border 0.2s;
+    }
+    textarea:focus {
+      border-color: #409eff;
+    }
+    button {
+      width: 360px;
+      height: 40px;
+      background-color: #409eff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .box button:hover {
+      background-color: #337ecc;
+    }
+    .show {
+      width: 360px;
+      background-color: white;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      border-radius: 15px;
+    }
+    .show p {
+      font-size: 16px;
+      line-height: 30px;
+      color: #818080;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+    .show p:last-of-type {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h3>请输入评论信息:</h3>
+    <textarea placeholder="请在此输入你的评论..."></textarea>
+    <button>发布评论</button>
+  </div>
+  <div class="show"></div>
+  <script>
+    var butEl = document.querySelector("button")
+    var inputEl = document.querySelector(".box textarea")
+    var showEl = document.querySelector(".show")
+    butEl.onclick = function () {
+      var data = inputEl.value.trim()
+      if (!data) {
+        alert("评论内容不能为空！");
+        return
+      }
+      var textEl = document.createElement("p")
+      textEl.innerText = data
+      showEl.append(textEl)
+      inputEl.value = ""
+    }
+  </script>
+</body>
+</html>      
